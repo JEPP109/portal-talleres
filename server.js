@@ -233,7 +233,15 @@ app.get('/api/mis-talleres', (req, res) => {
   res.json(misInscripciones);
 });
 
+// Ruta secreta para ver todos los inscritos
+app.get('/api/admin/inscritos', (req, res) => {
+  res.json({
+    totalInscripciones: inscripciones.length,
+    inscripciones: inscripciones
+  });
+});
+
 // Iniciar servidor
 app.listen(PORT, () => {
-  console.log(` Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
